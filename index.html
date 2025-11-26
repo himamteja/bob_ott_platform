@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOB - Premium Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="logo">BOB(The Best of the Best)</div>
+
+        <div class="search-bar-container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search movies...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="mobile-search-btn">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="home">Home</button>
+            <button class="nav-btn" data-target="mylist">My List</button>
+            <button class="nav-btn" data-target="about">About</button>
+            <button class="nav-btn" data-target="contact">Contact</button>
+
+            <div class="auth-container">
+                <button class="login-btn" id="nav-login-btn">Login</button>
+                <div class="profile-menu hidden" id="profile-menu">
+                    <div class="profile-trigger">
+                        <img src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff" alt="Profile"
+                            class="profile-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-header">
+                            <p class="user-name">User</p>
+                            <p class="user-email">user@example.com</p>
+                        </div>
+                        <a href="#" id="my-profile-link"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Side Menu -->
+    <div class="mobile-side-menu" id="mobile-side-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">BOB</div>
+            <span class="close-mobile-menu">&times;</span>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-auth-section" id="mobile-auth-section">
+                <!-- Injected via JS -->
+            </div>
+            <div class="mobile-nav-links">
+                <button class="mobile-nav-link active" data-target="home"><i class="fas fa-home"></i> Home</button>
+                <button class="mobile-nav-link" data-target="mylist"><i class="fas fa-list"></i> My List</button>
+                <button class="mobile-nav-link" data-target="about"><i class="fas fa-info-circle"></i> About</button>
+                <button class="mobile-nav-link" data-target="contact"><i class="fas fa-envelope"></i> Contact</button>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Unlimited Entertainment</h1>
+                    <p>Discover the latest movies in Telugu, Tamil, Hindi, and more.</p>
+                    <button class="cta-btn"
+                        onclick="document.querySelector('.movies-container').scrollIntoView({behavior: 'smooth'})">Explore
+                        Now</button>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="categories-nav">
+                <h2>Popular Categories</h2>
+                <div class="category-chips">
+                    <button class="cat-chip active" data-lang="all">All</button>
+                    <button class="cat-chip" data-lang="te">Telugu</button>
+                    <button class="cat-chip" data-lang="kn">Kannada</button>
+                    <button class="cat-chip" data-lang="ta">Tamil</button>
+                    <button class="cat-chip" data-lang="ml">Malayalam</button>
+                    <button class="cat-chip" data-lang="hi">Hindi</button>
+                    <button class="cat-chip" data-genre="16">Anime</button>
+                </div>
+            </div>
+
+            <div class="movies-container" id="movies-grid">
+                <!-- Movies will be populated here -->
+                <div class="loading-spinner"></div>
+            </div>
+        </section>
+
+        <!-- My List Section -->
+        <section id="mylist" class="page-section hidden">
+            <div class="content-wrapper">
+                <h2>My Watchlist</h2>
+                <div class="movies-container" id="mylist-container">
+                    <!-- My List items will be populated here -->
+                    <p class="empty-list-msg">Your list is empty. Add movies to watch them later!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section hidden">
+            <div class="content-wrapper">
+                <h2>About BOB</h2>
+                <p>BOB(The Best of the Best) is the premier destination for multi-language entertainment. Our mission is
+                    to bring the best of
+                    regional and international cinema to your screens.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="page-section hidden">
+            <div class="content-wrapper">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> tejapeyyala2002@.com</p>
+                    <p><i class="fas fa-phone"></i> +1 123-456-7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> BTM Layout, Bangalore, India</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Movie Details Modal -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modal-body">
+                <!-- Details injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal" style="z-index: 2100;">
+        <div class="modal-content video-modal-content">
+            <span class="close-modal" id="close-video">&times;</span>
+            <div class="video-container" id="video-container">
+                <!-- Iframe injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal" style="z-index: 2200;">
+        <div class="modal-content confirmation-content">
+            <p id="confirmation-msg" style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Are you sure?
+            </p>
+            <div class="confirmation-btns" style="display: flex; gap: 1rem; justify-content: center;">
+                <button id="confirm-yes" class="cta-btn" style="min-width: 100px;">Yes</button>
+                <button id="confirm-no" class="cta-btn"
+                    style="min-width: 100px; background: transparent; border: 1px solid white;">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="modal" style="z-index: 2150;">
+        <div class="modal-content auth-modal-content">
+            <span class="close-modal" id="close-profile">&times;</span>
+            <div class="profile-details-container" style="padding: 2rem; text-align: center;">
+                <h2 style="margin-bottom: 2rem;">My Profile</h2>
+                <div class="profile-avatar-large" style="margin-bottom: 2rem;">
+                    <img src="" alt="Profile" id="profile-modal-img"
+                        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color);">
+                </div>
+                <div class="profile-info-row"
+                    style="margin-bottom: 1rem; text-align: left; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                    <label style="color: var(--text-secondary); font-size: 0.9rem;">Name</label>
+                    <div id="profile-name-display" style="font-size: 1.1rem; font-weight: 600;"></div>
+                </div>
+                <div class="profile-info-row"
+                    style="margin-bottom: 2rem; text-align: left; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                    <label style="color: var(--text-secondary); font-size: 0.9rem;">Email</label>
+                    <div id="profile-email-display" style="font-size: 1.1rem; font-weight: 600;"></div>
+                </div>
+                <button id="profile-logout-btn" class="cta-btn full-width"
+                    style="background: #333; border: 1px solid #555;">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content auth-modal-content">
+            <span class="close-modal" id="close-auth">&times;</span>
+
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form-container">
+                <h2>Welcome Back</h2>
+                <p class="auth-subtitle">Login to continue your journey</p>
+                <form class="auth-form" id="login-form-el">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="cta-btn full-width">Login</button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" id="show-register">Register here</a>
+                </p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="auth-form-container hidden">
+                <h2>Create Account</h2>
+                <p class="auth-subtitle">Join the premium experience</p>
+                <form class="auth-form" id="register-form-el">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="cta-btn full-width">Register</button>
+                </form>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" id="show-login">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BOB</h3>
+                <p>BOB(The Best of the Best)</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('about')">About</a>
+                <a href="#" onclick="showSection('contact')">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BOB(The Best of the Best). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
