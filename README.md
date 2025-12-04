@@ -37,6 +37,15 @@ fully functional OTT platform with backend and API integrations in the future.
 
 ---
 
+## 📹 Demo Video
+<p align="center">
+  <img src="ott/demo-gif.gif" width="500" />
+</p>
+
+[🎥 Click here to watch the Demo Video](ott/demo.mp4)
+
+---
+
 ## 🛠 Tech Stack & Tools
 
 <p align="center">
@@ -69,19 +78,40 @@ fully functional OTT platform with backend and API integrations in the future.
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td align="center">
+      <img src="ott/main.png" width="300px"><br>
+      <b>🏠 Main Page</b>
+    </td>
+    <td align="center">
+      <img src="ott/list-1.png" width="300px"><br>
+      <b>📋 Movie List</b>
+    </td>
+    <td align="center">
+      <img src="ott/list-2.png" width="300px"><br>
+      <b>📋 Movie List</b>
+    </td>
   </tr>
 
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td align="center">
+      <img src="ott/profile.png" width="300px"><br>
+      <b>👨 Profile</b>
+    </td>
+    <td align="center">
+      <img src="ott/login.png" width="300px"><br>
+      <b>🔓 Login</b>
+    </td>
+    <td align="center">
+      <img src="ott/logout.png" width="300px"><br>
+      <b>🔐 Logout</b>
+    </td>
   </tr>
 
   <tr>
-    <td></td>
+    <td align="center">
+      <img src="ott/cast.png" width="300px"><br>
+      <b>📁 Crew-cast</b>
+    </td>
   </tr>
 </table>
 
